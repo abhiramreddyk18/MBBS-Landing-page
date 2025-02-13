@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study MBBS Abroad</title>
+    <meta name="description" content="Apply for MBBS Abroad in top countries like Russia, Uzbekistan, Kazakhstan, Philippines, Georgia, Kyrgyzstan, and Egypt. Secure your future today!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXX-Y');
+    </script>
+</head>
+<body class="bg-gray-100">
+    
+    <section class="bg-blue-600 text-white text-center py-16">
+        <h1 class="text-4xl font-bold">Study MBBS Abroad</h1>
+        <p class="mt-4 text-lg">Apply Now for MBBS Abroad and secure your future!</p>
+        <a  href="javascript:void(0);" id="applyNowBtn" class="mt-6 inline-block bg-yellow-400 text-blue-800 px-6 py-3 rounded-lg font-semibold">Apply Now</a>
+    </section>
+    
+    <section class="py-12 text-center">
+        <h2 class="text-3xl font-bold">Why Study MBBS Abroad?</h2>
+        <p class="mt-4 max-w-2xl mx-auto">Affordable tuition fees, globally recognized universities, and excellent career opportunities.</p>
+    </section>
+    
+    <section class="py-12">
+        <h2 class="text-3xl font-bold text-center">Top Countries</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-6">
+            <div class="bg-white p-4 rounded-lg shadow">Russia</div>
+            <div class="bg-white p-4 rounded-lg shadow">Uzbekistan</div>
+            <div class="bg-white p-4 rounded-lg shadow">Kazakhstan</div>
+            <div class="bg-white p-4 rounded-lg shadow">Philippines</div>
+            <div class="bg-white p-4 rounded-lg shadow">Georgia</div>
+            <div class="bg-white p-4 rounded-lg shadow">Kyrgyzstan</div>
+            <div class="bg-white p-4 rounded-lg shadow">Egypt</div>
+        </div>
+    </section>
+    
+    <section class="py-12 bg-gray-200 text-center">
+        <h2 class="text-3xl font-bold">Admission Process & Eligibility</h2>
+        <p class="mt-4 max-w-2xl mx-auto">Check the requirements and steps to apply for MBBS Abroad.</p>
+    </section>
+    
+    <section id="apply" class="py-12 text-center">
+        <h2 class="text-3xl font-bold">Apply Now</h2>
+        <form class="max-w-lg mx-auto mt-6 bg-white p-6 rounded-lg shadow" id="leadForm">
+            <input type="text" id="fullName" placeholder="Full Name" class="w-full mb-4 p-2 border rounded">
+            <p id="nameError" class="text-red-500 text-sm hidden">Full Name is required.</p>
+
+            <input type="email" id="email" placeholder="Email" class="w-full mb-4 p-2 border rounded">
+            <p id="emailError" class="text-red-500 text-sm hidden">Enter a valid email address.</p>
+
+            <input type="tel" id="phone" placeholder="Phone" class="w-full mb-4 p-2 border rounded">
+            <p id="phoneError" class="text-red-500 text-sm hidden">Enter a valid phone number (min 10 digits).</p>
+
+            <select id="country" class="w-full mb-4 p-2 border rounded">
+                <option value="">Select Preferred Country</option>
+                <option>Russia</option>
+                <option>Uzbekistan</option>
+                <option>Kazakhstan</option>
+                <option>Philippines</option>
+                <option>Georgia</option>
+                <option>Kyrgyzstan</option>
+                <option>Egypt</option>
+            </select>
+            <p id="countryError" class="text-red-500 text-sm hidden">Please select a preferred country.</p>
+
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg">Submit</button>
+        </form>
+    </section>
+    
+    <script>
+
+
+        document.getElementById("applyNowBtn").addEventListener("click", function(event) {
+            event.preventDefault(); 
+            document.getElementById("apply").scrollIntoView({ behavior: "smooth" });
+        });
+
+
+        document.getElementById("leadForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+           
+            let fullName = document.getElementById("fullName").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let country = document.getElementById("country").value;
+            
+           
+            let nameError = document.getElementById("nameError");
+            let emailError = document.getElementById("emailError");
+            let phoneError = document.getElementById("phoneError");
+            let countryError = document.getElementById("countryError");
+
+            let valid = true;
+
+            if (fullName === "") {
+                nameError.classList.remove("hidden");
+                valid = false;
+            } else {
+                nameError.classList.add("hidden");
+            }
+
+           
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                emailError.classList.remove("hidden");
+                valid = false;
+            } else {
+                emailError.classList.add("hidden");
+            }
+
+            
+            let phonePattern = /^[0-9]{10,}$/;
+            if (!phonePattern.test(phone)) {
+                phoneError.classList.remove("hidden");
+                valid = false;
+            } else {
+                phoneError.classList.add("hidden");
+            }
+
+          
+            if (country === "") {
+                countryError.classList.remove("hidden");
+                valid = false;
+            } else {
+                countryError.classList.add("hidden");
+            }
+
+            if (valid) {
+                alert("Your application has been submitted successfully!");
+            }
+        });
+    </script>
+</body>
+</html>
